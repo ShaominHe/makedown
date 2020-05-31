@@ -1,0 +1,85 @@
+<!DOCTYPE html><html><head><title>第六天</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h4 id="第六天">第六天</h4>
+
+<p>CSS Sprites的原理（图片整合技术）css精灵 雪碧图 <br>
+    图片整合技术是把小图标整合成一张大的背景图片通过插入背景图和background-position调整图片的位置来显示图片 <br>
+    优点： <br>
+        1.减少服务器的请求次数，提示网页的加载速度，减少服务器的带宽 <br>
+        2.减少图片的体积</p>
+
+<p>宽度自适应： <br>
+    块元素不设width或者width:100%,内容的宽度跟随父元素的宽度变化而变化</p>
+
+<p>高度自适应： <br>
+    父元素不设高度或者height:auto{父元素的高度由内容决定}</p>
+
+<p><code>min-height:最小高度</code>(IE6以下不支持) <br>
+    1：当内容的高度过小时，父元素有一个固定的高度 <br>
+    2：当内容的高度大于父元素的高度，以父元素内容的高度为准</p>
+
+<p>如果当前需要考虑IE6浏览器加过滤器 <br>
+1：下划线过滤器（IE6或以下版本<code>识别</code>） <br>
+        _属性：属性值 <br>
+        min-height:500px; <br>
+        _height:500px; <br>
+2：!important(提升整个css声明的权重/IE6以下<code>不识别</code>) <br>
+    属性：属性值!important; <br>
+    height:500px; <br>
+    height:auto !important; <br>
+    min-height:500px; <br>
+3:*过滤器（IE7或以下版本识别） <br>
+    *属性：属性值； <br>
+4：\9过滤器（区分  IE版本浏览器） <br>
+    属性：属性值\9; <br>
+5：\0过滤器（IE8以上版本浏览器） <br>
+    属性：属性值\0;</p>
+
+<p><code>高度塌陷</code> <br>
+如果父元素不设置高度或者父元素设置最小高度，一旦内容浮动，内容不占位，父元素识别不了子元素的高度，就会出现高度塌陷</p>
+
+<p>解决方法: <br>
+1：给父元素加overflow:hidden <br>
+        （overflow:hidden可以触发BFC，BFC是一个独立的渲染区域，布局规则：浮动的元素也参与与高度计算）</p>
+
+<p>缺点：超出父元素范围的内容会隐藏</p>
+
+<p>2：给所有浮动元素的最下方写一个空盒子，给空盒子设置clear:both,让盒子在所有浮动元素的下方显示，就可以把父元素的高度撑起来</p>
+
+<p>缺点：无意义的空盒子会造成代码的冗余</p>
+
+<p>3：万能清除法： <br>
+    .clear_fix:after{ <br>
+                content:”.” <br>
+                height:0px; <br>
+                visibility:hidden;(占位隐藏) <br>
+                display:block; <br>
+                clear:both; <br>
+} <br>
+.clear_fix{ <br>
+                    *zoom:1; <br>
+}</p>
+
+<p>高度自适应全屏显示 <br>
+height:100%；子元素的高度由父元素决定 <br>
+如果想要盒子的大小等于当前屏幕的大小 <br>
+    html,body{ <br>
+        height:100%; <br>
+}</p>
+
+
+
+<h6 id="伪对象选择符">伪对象选择符</h6>
+
+<p>::after{}    设置在对象后发生的内容，用来和content属性一起使用，所以必须定义content属性 <br>
+::before{}     设置在对象前发生的内容</p>
+
+<p>after和before使得我们可以不再body里面定义内容，而在css中添加。after和before前面可以是一个：也就可以是两个：：</p>
+
+<p>::first-letter{}   设置的是第一行第一个字的内容的样式</p>
+
+<p>::first-line{}    设置的是第一行的内容的样式</p></div></body></html>

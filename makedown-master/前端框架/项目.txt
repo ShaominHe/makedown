@@ -1,0 +1,44 @@
+// 刷新组件
+reloadToStateDiaLog() {
+	this.showEchartData = false
+       	this.$nextTick(() => (
+        	this.showEchartData = true
+      	))
+},
+
+用途：
+直接在组件中可以控制组件每一次传过去的值都是新的，重新渲染
+<el-button type="primary" @click="five" icon="el-icon-close" size="small" circle plain ></el-button>
+ <test-Report
+              v-if="showEchartData"
+              :sizeFive="sizeFive"
+              @detailService="getServiceTestreport"
+              :serviceReport="serviceReport"
+              :carLineList="carLineList"
+
+              :lastcycle="Testreportlastcycle"
+              :lastTwocycle="Testreportlast2cycle"
+              :lastThreecycle="Testreportlast3cycle"
+              :resizeChartFlag="resizeChartFlag"
+              :chartsBar="chartsBar"
+              @barcharts="barcharts"
+></test-Report>
+methods中：
+five () {
+    this.reloadToStateDiaLog();
+}
+在组件中：利用计算属性监听，比起写在methods方法中，优势是在方法中只要页面刷新就会执行一次，
+而计算属性中只要数据不发生变化就不会重新执行，而是放到缓存中
+<div id="statisticChart" 
+        :style="{height: echartsHight ,width: '100%'}"
+></div>
+
+  computed:{
+      echartsHight:function(){
+          if(this.sizeFive){
+            return '100px'
+          }else{
+            return '350px'
+          }
+        },
+  },

@@ -1,0 +1,213 @@
+<!DOCTYPE html><html><head><title>BOM和DOM上</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="bom和dom上">BOM和DOM上</h2>
+
+
+
+<h5 id="bom">BOM</h5>
+
+<p>BOM   browser  object  model   浏览器对象模型 <br>
+1、对象中可以嵌套任何东西</p>
+
+<p>2、获取浏览器的宽度和高度：包含滚动条的尺寸 <br>
+    var w=window.innerWidth   浏览器的宽度 <br>
+    var h=window.innerHeight   浏览器的宽度</p>
+
+<p>dom获取浏览器的高度 <br>
+var  maxHeight=document.documentElement.cliientHeight</p>
+
+<p>3、获取浏览器的信息 navigator <br>
+    window.navigator.appName;  //浏览器的名称 <br>
+    所有的浏览器的名称都是 Netscape  网景 <br>
+    window.navigator.appVersion; //浏览器版本信息 <br>
+    window.navigator.appCodeName;//浏览器内部核心代码的名称 <br>
+    window.navigator.userAgent; //浏览器向服务器发送信息时携带的用户头</p>
+
+<p>4、地址栏信息 <br>
+    （1）var res=window.Location.href; <br>
+             console.log(res); <br>
+             获取当前地址栏信息 <br>
+跳转：   window.Location.href=”http://www.baidu.com” <br>
+    （2）获取地址栏中的锚点 (地址栏#后的信息) <br>
+        var res =window.Location.hash; <br>
+        console.log(res) <br>
+    （3）所有的对象都属于window对象，写的时候就可以省略掉window <br>
+    网页重定向： <br>
+        Location.assign(“<a href="http://www.qq.com" target="_blank">http://www.qq.com</a>“) <br>
+    使用指定的地址来替换当前地址： <br>
+        Location.replace(“<a href="http://www.qq.com" target="_blank">http://www.qq.com</a>“) <br>
+    （4）重新加载本页面–刷新 <br>
+        Location.reload()</p>
+
+<p>5、window的事件 <br>
+    （1）窗口滚动事件  监听页面窗口滚动条滚动的时候触发这个事件    scroll <br>
+            window.onscroll=function(){} <br>
+    （2）获取滚动条滚动的距离 <br>
+        向下滚动的距离： <br>
+        var t=document.documentElement.scrollTop; <br>
+        //是一个纯数字 <br>
+        console.log(t) <br>
+        向右滚动的距离 <br>
+        var l=document.documentElement.scrollLeft; <br>
+        console.log(l) <br>
+        适用于没有doctype的情况： <br>
+        var t=document.body.scrollTop <br>
+        console.log(t) <br>
+        适用于有doctype <br>
+        var t=document.documentElement.scrollLeft <br>
+        console.log(t) <br>
+        不管有没有doctype都可以获取到滚动距离 <br>
+        var t=document.documentElement.scrollTop   ||   document.body.scrollTop; <br>
+         或者：var t=document.documentElement.scrollTop&gt;0?document.document.Element.scrollTop  :  document.body.scrollTop <br>
+         console.log(t) <br>
+6、定时器 <br>
+（1）setInterval()   每隔多长时间干什么事情 <br>
+        参数1：要干的那件事情，交给一个函数去做–函数 <br>
+        参数2：间隔的时间，单位毫秒数 <br>
+例：var a=setInterval(function(){ <br>
+    console.log(123) <br>
+},1000) <br>
+（2）延时器： <br>
+setTimeout()   多长事件之后做什么事情—延时执行  只能执行一次 <br>
+参数1：要干的那件事情，交给一个函数去做–函数 <br>
+参数2：延迟的时间，单位毫秒数 <br>
+例：var b=setTimenout(function(){ <br>
+    console.log(123) <br>
+},1000) <br>
+（3）清除定时器    clearInterval(a) <br>
+                                clearTimeout(b) <br>
+                这两个可以混用 <br>
+7、同步和异步 <br>
+  （1）同步：2会等1执行完才执行，按顺序执行 <br>
+      console.log(1) <br>
+      console.log(2) <br>
+  （2）异步—定时器是 <br>
+                第一次碰到的异步代码 <br>
+        setTimeout(function(){ <br>
+        console.log(1) <br>
+},0) <br>
+console.log(2)//不管1的延时是多少，即使是0也会先执行2</p>
+
+<p>碰到异步代码，扔一边去，先执行同步代码，等所有同步代码执行完以后，再来看有没有异步代码需要执行</p>
+
+
+
+<h5 id="dom上">DOM上</h5>
+
+<p>DOM  document   object   model   文档对象模型   window,document</p>
+
+<p>document.write(“写入文档的内容”) <br>
+document.bgColor=”red”;  //理解为给html加 <br>
+document.documentElement;//html及内部所有内容 <br>
+document.head;//获取到head 标签及其内部所有内容 <br>
+document.title;//操作title标签 <br>
+document.body.style.color=”red”</p>
+
+<p>获取标签元素 <br>
+console/log(btn);   输出ID名，只能看到标签本身 <br>
+console.log(typeof btn);   输出是对象类型 <br>
+console.dir(btn)  要看到这个对象的本质，需要使用console.dir</p>
+
+<p>通过id名来获取标签元素对象 <br>
+document.getElementById(id名)       返回的是一个标签对象 <br>
+通过标签命名来获取元素 <br>
+document.getElementsByTagName(标签名)       返回的是一个集合，伪数组，数组的操作同样可以适用于伪数组 <br>
+通过类名获取元素 <br>
+document.getElementsByClassName(标签名)       返回的也是一个伪数组 <br>
+通过name属性获取元素 <br>
+document.getElementsByName(name属性值)      也是返回一个集合</p>
+
+<p>最常用的获取元素 <br>
+通过css选择器获取元素 <br>
+document.querySelector(css选择器)；   只能获取到满足css选择器的第一个 <br>
+document.quarySelectorAll(css选择器)；获取到满足css选择器的所有元素</p>
+
+<p>属性的操作 <br>
+    var  oInput=document.querySelector(“input”) <br>
+    oInput.maxLength=6； <br>
+    oInput.aaa=”bbb” <br>
+增：   对象.setAttribute(属性名，属性值) <br>
+     oInput.setAttribute(“maxLength”,6) <br>
+      oInput.setAttribute(“aaa”,”bbb”) <br>
+删：    对象.removeAttribute(属性名) <br>
+        oInput.removeAttribute(“aaa”) <br>
+改：   重新设置属性即可 <br>
+        oInput.setAttribute(“type”,”password”) <br>
+查：  对象.getAttribute(属性名) <br>
+        console.log(oInput.getAttribute(“maxLength”))</p>
+
+<p>增可以增加一些标签有的属性 也可以增加没有的属性 <br>
+直接标签名.属性也可以增加 但增加标签没有的属性看不到</p>
+
+<p>样式的操作 <br>
+元素.style.css属性（只能获取到行内样式，style设置的样式也在行内） <br>
+注意：对象中的属性名不允许有连字符（中划线），碰到这种css属性的时候： <br>
+            元素.style.驼峰命名 <br>
+            元素.style[“css属性”]</p>
+
+<p>获取所有的样式： <br>
+window.getComputedStyle()</p>
+
+<p>class类名 <br>
+元素.className</p>
+
+<p>标签的内容 <br>
+获取文本的内容    元素.innerText <br>
+获取到带标签的内容   innerHTML <br>
+例： 《div》 <br>
+            盒子 <br>
+                《p》 <br>
+                        段落 <br>
+                《/p》 <br>
+            《/div》 <br>
+            《script》 <br>
+                    var oDiv= document.querySelector(“div”) <br>
+                    oDiv.innerText=’123’ <br>
+                    结果是： <br>
+                            《div》 <br>
+                                    123 <br>
+                            《/div》 <br>
+                        oDiv.innerHTML=’123’ <br>
+                        结果是: <br>
+                                《div》 <br>
+                                            盒子 <br>
+                                                《p》 <br>
+                                                        123 <br>
+                                                《/p》 <br>
+                                    《/div》</p>
+
+<p>短路运算 <br>
+var a=1; <br>
+a&gt;0&amp;&amp;(b=2) <br>
+console.log(b)结果是2 <br>
+var a=1; <br>
+a&lt;0&amp;&amp;(b=2) <br>
+console.log(b)结果是报错 b没有定义a&lt;0不成立 后面不执行 <br>
+var a=1; <br>
+a&gt;0||(b=2) <br>
+console.log(b)结果是报错 b没有定义a&gt;0成立 后面不执行 <br>
+var a=1; <br>
+a&lt;0||(b=2) <br>
+console.log(b)结果是2</p>
+
+<p>页面的返回前进 <br>
+例： 第二个页面 <br>
+《a href=”3.html”&gt;去第三个《/a&gt; <br>
+  《button id=”prev”&gt;上一个《/button&gt; <br>
+   《button id=”next”&gt;下一个《/button&gt; <br>
+prev.onclick=function(){ <br>
+    history.back()   //返回上一个页面 <br>
+} <br>
+next.onclick=function(){ <br>
+    history.forward()   //前进一个页面 <br>
+} <br>
+//必须得去过之后才可以进行返回前进 <br>
+第三个页面 <br>
+ 《button id=”one”&gt;回到第一个《/button&gt; <br>
+ one.onclick=function(){ <br>
+    history.go(-2) <br>
+}//直接跳转几个页面  正值向前跳  负值往回跳</p></div></body></html>

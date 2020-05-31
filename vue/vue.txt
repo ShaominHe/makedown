@@ -1,0 +1,3 @@
+scope.row为当前行的信息
+scope.$index为当前行的索引
+scope.column为当前列的信息

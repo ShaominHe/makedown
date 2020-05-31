@@ -1,0 +1,308 @@
+<!DOCTYPE html><html><head><title>es5和es6</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="es5和es6">es5和es6</h2>
+
+
+
+<h5 id="es5">es5</h5>
+
+<p>1、严格模式     use strict <br>
+2、数组新增的方法 <br>
+indexOf   查找元素在数组中第一次出现的位置 <br>
+forEach   遍历数组  <br>
+map(function(item,index,array){})   遍历数组，将数组中的所有元素都让一个函数去处理，新元素组成新数组返回 <br>
+reduce   归并 <br>
+fillter   过滤函数 <br>
+some方法先遍历数组，如果至少有一个元素满足条件，则返回true，否则返回false ，如果找到第一个满足条件的元素，后面的元素不再继续遍历，如果最后没有找到，所有元素进行了遍历 <br>
+数组名.some(item,idex)   元素 ，下标 <br>
+var arr=[1,2,3,4,5,6,] <br>
+例：arr.some=function(item){ <br>
+    if(item&gt;5){ <br>
+    return ture <br>
+}else{ <br>
+    return false <br>
+} <br>
+} <br>
+every方法 数组中所有元素满足条件返回true否则返回false，找到第一个不满足条件的元素，后面不再遍历，最后返回true，数组所有元素都进行了遍历 <br>
+find方法返回数组中满足条件的<code>第一个值</code>，找不到就返回false  找到了就返回这个值 <br>
+findindex方法返回数组中满足条件的<code>第一个值的下标</code> ，找不到元素就返回-1</p>
+
+
+
+<h5 id="es6">es6</h5>
+
+<p>JS是弱类型语言，es6使他变为中弱类型 <br>
+但是兼容性不好，不过gulp工具会将其变为es5 <br>
+1、定义变量： <br>
+    let是声明变量的关键字，特点是： <br>
+    （1）不允许重复声明 <br>
+    会报错：Identifier ‘a’ has already been declared     变量a重复声明报错 <br>
+    （2）不存在预解析 <br>
+    预解析报错也是not defined <br>
+    （3）在大括号中声明的变量只能在大括号中使用，如if，for 中的大括号声明的变量 <br>
+    作用域限制报错：not defined</p>
+
+<p>2、定义常量： <br>
+        常量：不能变的量（如：路径），不能重复赋值 <br>
+        const是声明常量的关键字，特点是： <br>
+        （1）不允许重复声明 <br>
+        （2）不允许重复赋值（可以给对象新增元素） <br>
+        不能重复赋值报错： <br>
+        Assigneent to constant variable <br>
+        （3）<code>声明就必须赋值</code> <br>
+        不赋值报错： <br>
+        missing initializer in  const declarration  <br>
+        （4）不存在预解析 <br>
+        （5）在大括号中声明的变量只能在大括号中使用，如if、for的大括号中声明的变量</p>
+
+<p>3、箭头函数 <br>
+箭头函数是用来简写函数的， <br>
+将一个函数当做另一个函数的形参，这个函数就叫做回调函数，箭头函数通常作为回调函数使用 <br>
+例如：map(function(){}) <br>
+            setInterval(function(){})</p>
+
+<p>原来：function add(a,b){ <br>
+    console.log(a+b) <br>
+} <br>
+add() <br>
+简写：(a,b)=&gt;{ <br>
+    console.log(a+b) <br>
+}</p>
+
+<p>原来：function add(a,b){ <br>
+    return a+b <br>
+} <br>
+简写： <br>
+            (a,b)=&gt;a+b <br>
+结论：大括号中只有一行代码，并且这行代码是要返回一个值，那么这个函数就可以省略大括号和return关键字</p>
+
+<p>原来：function print(a){ <br>
+        console.log(a) <br>
+} <br>
+print(2) <br>
+简写：print=a=&gt;{ <br>
+        console.log(a) <br>
+} <br>
+print(2); <br>
+结论：当箭头函数只有一个参数的时候，小括号也能省略了</p>
+
+<p>4、函数的默认值 <br>
+字符串的方法：–截取字符串 ：substring  或  substr <br>
+substring(a,b)第一个参数是截取开始的位置，第二个参数是截取的位数 <br>
+substring(a) 省略第二个参数，就截取到字符串末尾</p>
+
+<p>形参赋值就是参数的默认值，这个参数其实就成了可选项 <br>
+例：function add(a,b=2){ <br>
+    console.log(a+b) <br>
+} <br>
+add(1,5)   // 6 <br>
+add(1)   //3</p>
+
+<p>5、模板字符串 <br>
+模板字符串：另外一种定义字符串的方式。使用反引号  <code>`（tab上面的键） <br>
+好处就是  可以解析回车、空格 <br>
+                  可以在字符串中解析变量 <br>
+例：var name ="李四" <br>
+var s ='姓名叫'+name+"年龄12岁" <br>
+模板字符串：var  name ="李四" <br>
+                    var  s=</code>姓名叫${name}年龄12岁`</p>
+
+<p>总结：字符串中使用${变量名}    就可以解析</p>
+
+<p>6、解构赋值 <br>
+例： var  obj={ <br>
+            name:”王五”, <br>
+            age:12 <br>
+    } <br>
+以前的写法：var  name = obj.name  //王五 <br>
+                    var   age  = obj.age    //12 <br>
+es中     var  {name,age} = obj   //  name变量名必须和  属性名同名 <br>
+            console.log(name,age)   //王五  12</p>
+
+<p>可以起别名： <br>
+var {name:n,age}  =  obj; <br>
+console.log(n,age)</p>
+
+<p>多级解构 <br>
+例： var obj={ <br>
+    name:”赵六”, <br>
+    age:12, <br>
+    wife:{ <br>
+            name:”翠花”, <br>
+            age:13 <br>
+    } <br>
+} <br>
+var  {wife}  =   obj <br>
+var  {name,age}  =  wife; <br>
+console.log(name,age)</p>
+
+<p>解构数组 <br>
+例： <br>
+var  arr=[1,2,3] <br>
+var [num] = arr  //1 <br>
+var [a,b,num]  =  arr  //3</p>
+
+<p>使用解构赋值交换两个变量的值： <br>
+var  a =1; <br>
+var  b=2; <br>
+[b,a] = [a,b] <br>
+console.log(a,b)  // 2  1</p>
+
+<p>解构多级数组 <br>
+var ar =[1,2,3,[4,5,6]] <br>
+var [a,b,c,d]=arr <br>
+var [a,e]=d <br>
+console.log(e)   // 5</p>
+
+<p>7、展开运算符 <br>
+function(a,b,c){ <br>
+    console.log(a+b+c) <br>
+} <br>
+以前：add(1,2,3) <br>
+es6中：add(…[1,2,3])  //展开运算符</p>
+
+<p>8、合并数组   —–利用展开运算符合并数组concat <br>
+    var  arr = [‘a’,’b’] <br>
+    var  arr1 = [1,2,3,4] <br>
+    var   res  =  arr . concat(1,2,3,4)   //以前 <br>
+    var  res =  arr.concat(…arr1)     // es6 <br>
+    console.log(res)</p>
+
+<p>9、合并对象 <br>
+var  obj={ <br>
+    name : “JackSon” <br>
+    sex=”男” <br>
+} <br>
+var  obj1 = { <br>
+    …obj, <br>
+    hobby:”内裤外穿” <br>
+} <br>
+console.log(obj1)</p>
+
+<p>10、合并运算符 <br>
+function  fn(…arr){ <br>
+    console.log(arr) <br>
+} <br>
+fn(1,2,3)</p>
+
+<p>11、对象的简写方式 <br>
+var name=’孙七’ <br>
+var  age=’30’ <br>
+var  obj={ <br>
+    name:name, <br>
+    age:age, <br>
+} <br>
+简写为：var  obj={ <br>
+    name, <br>
+    age, <br>
+}   //属性名和属性值一样时可以省略</p>
+
+<p>12、数据类型 <br>
+typeof检测对象类型时 检测不出是什么对象类型 <br>
+Object.prototype.toString.call(被检测的数据类型)</p>
+
+<p>13、字符串新增方法 <br>
+（1）判断字符串是否以某个字符开头     startsWith   返回布尔值 <br>
+例：var  str =’abcdef’ <br>
+    var  res  = str . startsWith(‘a’) <br>
+    console.log(res)    //   true <br>
+（2）判断字符串是否以某个字符结尾     endsWith <br>
+返回布尔值 <br>
+（3）判断字符串中是否包含某个值     includes  <br>
+返回布尔值    //这个方法同样适用于数组</p>
+
+<p>14、伪数组 <br>
+伪数组是一个对象，数组能用的方法和操作同样适用于伪数组 <br>
+定义一个伪数组： <br>
+    var  farr = { <br>
+            length: 0, <br>
+}  <br>
+或   var farr={ <br>
+    length:  1, <br>
+    “0”:123, <br>
+}</p>
+
+<p>15、JSON对象 <br>
+将字符串转为JSON对象 <br>
+var str  =  ‘{“name”:”张三”，”age”:13}’ <br>
+var res = JSON.parse(str) <br>
+console.log(res.name)    //张三</p>
+
+<p>将JSON对象转为字符串 <br>
+var  obj={ <br>
+    name:”张三”, <br>
+    age:12, <br>
+} <br>
+var res  =  JSON.stringify(obj) <br>
+console.log(str);</p>
+
+<p>16、this 关键字 <br>
+事件中的this 指的是事件源 <br>
+全局函数中的this 指的是window <br>
+setInterval 定时器中的this 指向window <br>
+对象中谁调用this，this就是谁 <br>
+匿名函数的this是值window</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line">    <span class="hljs-keyword">var</span> f= <span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>)    <span class="hljs-comment">//window</span>
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">匿名函数自调用：
+</div><div class="hljs-line">      第一种：(<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>)     <span class="hljs-comment">//  window</span>
+</div><div class="hljs-line">    })();
+</div><div class="hljs-line">    第二种：~<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>)       <span class="hljs-comment">//  window</span>
+</div><div class="hljs-line">    }()
+</div><div class="hljs-line">    第三种：!<span class="hljs-function"><span class="hljs-keyword">function</span>(<span class="hljs-params"></span>)</span>{
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-keyword">this</span>)      <span class="hljs-comment">//  window</span>
+</div><div class="hljs-line">    }
+</div></code></pre>
+
+<p>箭头函数的this在定义的时候已经有值了 <br>
+箭头函数上一行代码的this 是谁，箭头函数的this就是谁 <br>
+this只和函数的调用方式有关系，和函数的定义方式没有关系</p>
+
+<p>17、上下文调用模式 <br>
+任何函数都能调用call、apply、bind <br>
+1、call <br>
+call直接调用的时候和普通函数的调用并没有区别，但是有了参数就不一样了 <br>
+第一个参数：对象。改变被调用的函数中的this的指向，指向当前这个对象 <br>
+后面的参数：如果被调用的函数有形参，后面的这些函数就应该和函数的形参对应 <br>
+例： <br>
+    var  function fn(){ <br>
+    console.log(this)     //  window <br>
+} <br>
+ var  obj={ <br>
+    obj.name=”张三” <br>
+} <br>
+ fn()    //  window <br>
+ fn call()     //  window <br>
+ fn . call(obj)    //obj</p>
+
+<p>var  function fn(a,b){ <br>
+    console.log(this)     //  window <br>
+    console.log(a+b) <br>
+} <br>
+fn.call(obj,1,2)    //  obj   3</p>
+
+<p>2、apply–功能和call一样，用法不同 <br>
+区别就是  第二个参数：是数组，将函数需要的实参组成数组当做第二个参数 <br>
+fn.apply(obj,[1,2])</p>
+
+<p>3、bind   不会调用函数，复制一个一模一样的函数出来，顺便就可以将函数中的this指向改变成bind参数—对象 <br>
+var  obj={ <br>
+    obj.name=”jack” <br>
+} <br>
+function fn(){ <br>
+    console.log(this) <br>
+} <br>
+var fn2= fn.bind(); <br>
+console.log(fn , fn2)   //输出一模一样 <br>
+var fn3=fn.bind(obj) <br>
+fn3() <br>
+bind  用来赋值函数 <br>
+参数：对象–复制对象的时候，将函数中的this指向改变为当前这个对象</p></div></body></html>

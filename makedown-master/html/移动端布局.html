@@ -1,0 +1,62 @@
+<!DOCTYPE html><html><head><title>移动端布局</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h5 id="移动端布局">移动端布局</h5>
+
+<p>一、媒体 <br>
+1：</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs css"><div class="hljs-line">@<span class="hljs-keyword">media</span> all and (min-width:<span class="hljs-number">320px</span>){
+</div><div class="hljs-line">    <span class="hljs-selector-tag">body</span>{
+</div><div class="hljs-line">    <span class="hljs-attribute">background-color</span>:blue;
+</div><div class="hljs-line">    }
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<p>2:竖屏</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs less"><div class="hljs-line"><span class="hljs-variable">@mediascreenand</span>(<span class="hljs-attribute">orientation</span>:portrait){
+</div><div class="hljs-line"><span class="hljs-selector-tag">body</span>{
+</div><div class="hljs-line"><span class="hljs-attribute">background</span>:red;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<p>3:横屏</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs less"><div class="hljs-line">    <span class="hljs-variable">@mediascreenand</span>(<span class="hljs-attribute">orientation</span>:landscape){
+</div><div class="hljs-line"><span class="hljs-selector-tag">body</span>{
+</div><div class="hljs-line"><span class="hljs-attribute">background</span>:blue;
+</div><div class="hljs-line">}
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<p>二、设置Meta标签</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs maxima"><div class="hljs-line">&lt;meta name=<span class="hljs-string">"viewport"</span> <span class="hljs-built_in">content</span>=<span class="hljs-string">"width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no"</span>&gt;
+</div><div class="hljs-line">这段代码的几个参数解释：
+</div><div class="hljs-line">    <span class="hljs-built_in">width</span>=device-<span class="hljs-built_in">width</span>:宽度等于当前设备的宽度
+</div><div class="hljs-line">    initial-<span class="hljs-built_in">scale</span>:初始的缩放比例（默认设置为<span class="hljs-number">1.0</span>）
+</div><div class="hljs-line">    minimum-<span class="hljs-built_in">scale</span>:允许用户缩放到的最小比例（默认设置为<span class="hljs-number">1.0</span>）
+</div><div class="hljs-line">    maximum-<span class="hljs-built_in">scale</span>:允许用户缩放到的最大比例（默认设置为<span class="hljs-number">1.0</span>）
+</div><div class="hljs-line">    user-scalable：用户是否可以手动缩放（默认设置为no，因为我们不希望用户放大缩小页面）
+</div></code></pre>
+
+<p>三、 <br>
+1、dpr  设备像素比 <br>
+        物理像素（ps测量的像素） <br>
+        逻辑像素（css设置或者屏幕显示的像素） <br>
+2、dpr=物理像素/逻辑像素 <br>
+        640px     (5/4)      dpr=2 <br>
+        750px     (6/7/8)      dpr=2 <br>
+        10880px                dpr=3 <br>
+3、单位 <br>
+    绝对单位 <br>
+            px、pt <br>
+    相对单位 <br>
+            100% <br>
+            em（父元素的font-size值） <br>
+            rem（根元素html的font-size值）</p></div></body></html>

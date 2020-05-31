@@ -1,0 +1,72 @@
+<!DOCTYPE html><html><head><title>循环</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="循环">循环</h2>
+
+<p>循环的意义是让代码重复执行 <br>
+一、循环 <br>
+1、while循环 <br>
+while(条件语句){ <br>
+    条件成立执行的代码 <br>
+} <br>
+2、do while 循环 <br>
+do while不管条件是否成立，先执行一次 <br>
+3、for循环 <br>
+for（声明变量并赋初始值；条件表达式；计数器）{ <br>
+    重复执行的代码 <br>
+} <br>
+二、循环的关键字 <br>
+1、continue，可以跳过当前这次的循环，直接进行下一次的循环 <br>
+2、break，可终止循环，直接让整个循环结束运行</p>
+
+
+
+<h2 id="函数">函数</h2>
+
+<p>function   函数名（）{ <br>
+    代码段 <br>
+} <br>
+函数的好处： <br>
+            1、增强代码的复用性 <br>
+            2、实现模块化的编程 <br>
+函数的调用：函数名（） <br>
+小括号内写参数：形参：定义函数的时候使用，在函数中占位 <br>
+                            实参    调用的时候使用，给形参赋值 <br>
+匿名函数： <br>
+function( ){ <br>
+    代码段 <br>
+} <br>
+匿名函数传递参数： <br>
+1、将整个函数当成一个整体用括号括起来 <br>
+(function(a,b){ <br>
+    var c=a+b; <br>
+    document.write(c) <br>
+}(1,2) <br>
+2、将匿名函数赋值给变量，调用的时候使用变量名来调用 <br>
+var fun=function(){ <br>
+    代码段 <br>
+} <br>
+fun() <br>
+3、通过事件来调用 <br>
+注意： <br>
+1、函数内部输出一个变量，先从函数内部找，有没有定义过这个变量，如果有，直接输出，如果没有，再从函数外面找 <br>
+2、函数外部输出一个变量。在函数外部去找 <br>
+3、函数可以先调用，在定义 <br>
+4、变量先输出，在定义，结果是undefined <br>
+5、只有输出，没有定义，报错</p>
+
+<p>带返回值的函数 <br>
+return：  终止代码的继续运行 <br>
+                在函数中返回一个内容</p>
+
+<p>三元运算符： <br>
+条件？成立时的值：不成立时的值 <br>
+作用：简化双分支：可以将整个三元运算输出，将整个三元运算赋值给一个变量，三元运算符可以嵌套。不能简化单分支和多分支 <br>
+也可以进行嵌套 <br>
+例：  var  max=a&gt;b? a&gt;c?a:c  : b&gt;c?b:c</p>
+
+<p>NaN   类型   number   非数字 <br>
+isNaN（）  数字 （数字类的字符串）进来返回false，非数字进来返回true</p></div></body></html>

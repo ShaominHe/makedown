@@ -1,0 +1,199 @@
+<!DOCTYPE html><html><head><title>JS</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h1 id="js">JS</h1>
+
+<p>JS的三大结构：ECMAscript、BOM（浏览器对象模型）、DOM（文本对象模型）</p>
+
+<p>JS代码的书写位置在body里 <br>
+style标签可以放在任何地方，script也可以放在任何地方，一般放body下面 <br>
+注释，单行/ /多行/* */ <br>
+一、JS的输出 <br>
+1、以弹窗的形式显示 <br>
+    alert（） <br>
+2、以文本的形式显示 <br>
+    document.write（） <br>
+3、可以输入内容的弹窗 <br>
+    prompt（） <br>
+4、可以判断的弹窗 <br>
+    confirm（） <br>
+5、调试工具中输出 <br>
+    <code>console.log（）</code></p>
+
+<p>二、变量 <br>
+1、变量的命名规则 <br>
+由字母，数字，下划线组成，但是不能由数字开头 <br>
+2、变量声明 <br>
+var空格 变量名 <br>
+例：var  x=1,y=2;</p>
+
+<p>三、数据类型 <br>
+1、数字型  number   包括整数，小数，负数 <br>
+2、字符串型  string    用引号引起来的一串字符，单引号和双引号都行，但是单引号只能包含双引号，双引号也只能包含单引号 <br>
+必要时可以使用转义：\  将特殊符号转换成普通的字符 <br>
+3、布尔型   boolean   ture和false <br>
+4、未定义型 undefined   代表未定义的变量 <br>
+5、对象型    object    代表一个集合</p>
+
+<p>使用typeof（被检测的内容）可以得出一个内容的类型。 <br>
+console.log（typeof  被检测的内容）</p>
+
+<p>四、进制 <br>
+十进制，二进制，八进制，十六进制 <br>
+在数字前面加0表示这个数字是8进制的数字 <br>
+在数字前面加0x表示这个数字是16进制</p>
+
+<p>五、运算 <br>
+1、NaN  表示一个非数字，在JS中，当发现无法进行运算时，JS不会报错，而是会返回一个NaN  <br>
+例：var a =”abc”; <br>
+        var b =2; <br>
+        var c = a - b; <br>
+        console.log(c); <br>
+        输出的就是NaN  <br>
+2、赋值运算 <br>
+    =赋值符：左边是变量，右边是值，将右边的值放在左边的变量中 <br>
+3、算术运算 <br>
++求和 -求差 *求积 /求商 %求余</p>
+
+<p>字符串的拼接运算：进行+运算时，如果两边进行的是数字中的加法运算，但是两边只要一边是字符串的话，那就是将两边的值连接成一个，也就是所谓的字符串的拼接 <br>
+例：var a =12345; <br>
+        var b =”上山打老虎” <br>
+        var c =a+b; <br>
+        console.log(c); <br>
+        结果是12345上山打老虎 <br>
+具体情况：数字+字符串，字符串+数字，字符串+字符串 <br>
+4、比较运算（比较的结果是布尔型） <br>
+&lt;,&gt;,&gt;=,&lt;=，= =，= = = <br>
+= = 判断相等：只判断值是否相等，而不管类型 <br>
+= = =先判断类型是否相同，如果相同了，在比较值是否相等</p>
+
+<p>六、强制转换 <br>
+1、强制转换为数字类型Number <br>
+    数字类的字符串，可以转换为具体数字，别的字符串转为数字都是NaN。 <br>
+    布尔型转为数字：true是1，false是0。 <br>
+    undefined直接赋值也是undefined，undefined转数字也是NaN <br>
+    null转数字是0 <br>
+2、字符串的转换  String <br>
+其他类型转字符串，只是加个引号而已 <br>
+3、转布尔型 Boolean <br>
+数字转布尔型，0是false，其他数字都是true <br>
+空字符串转布尔型为false,其他都是true <br>
+undefined和null转布尔都是false <br>
+4、隐形的转换 <br>
+数字运算（出了加法）可以悄悄的将数据装成数字 <br>
+加法：只要有一个是字符串，另一个悄悄转换为字符串 <br>
+比较运算的时候，会将别的类型转成数字作比较</p>
+
+<p>补充：var a = prompt（）；将可输入的弹窗使用变量接收，就可以得到他的值</p>
+
+<p>七、赋值运算 <br>
++=  —=   *=   /=   %= <br>
+八、逻辑运算 <br>
+逻辑运算：得出的都是布尔型的结果：并且&amp;&amp;  或者||   取反，非！  <br>
+并且：有0为0 <br>
+或者：有1为1 <br>
+！0不等于 <br>
+！==不全等</p>
+
+<p>九、赋值运算 <br>
+碰到赋值，运算，输出，++在前面先++，后赋值。++在后面，后++先赋值</p>
+
+<p>十、取整 <br>
+parseInt(被转换的数据)————强制转换为整数 <br>
+parseFloat(被转换的数据)————强制转换为小数 <br>
+补充：保留小数点后面的位数 <br>
+            小数.toFixed（位数）</p>
+
+<p>十一、分支 <br>
+1、单分支 <br>
+if（判断的条件）{ <br>
+当条件结果是true的时候要执行一段代码 <br>
+} <br>
+2、双分支 <br>
+if（判断的条件）{ <br>
+条件为true执行的代码 <br>
+}else{ <br>
+条件为false的时候执行的代码 <br>
+} <br>
+3、多分支 <br>
+if（条件1）{ <br>
+    条件1为true的时候，要执行的代码 <br>
+}else if （条件2）{ <br>
+    条件2为true的时候要执行的代码 <br>
+}else if （条件3）{</p>
+
+<p>} <br>
+…</p>
+
+<p>十二、if的嵌套 <br>
+例：a,b,c变量都是数字 通过if判断得出最大的那个数字 <br>
+var a =prompt（“输入数字a：”） <br>
+var  b=prompt（“输入数字b:  ”） <br>
+var  c=prompt（“输入数字c:  ”）</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs applescript"><div class="hljs-line"><span class="hljs-keyword">if</span>（a&gt;b）
+</div><div class="hljs-line">    <span class="hljs-keyword">if</span>（a&gt;c）{
+</div><div class="hljs-line">    console.<span class="hljs-built_in">log</span>（<span class="hljs-string">"a最大"</span>）
+</div><div class="hljs-line">    }<span class="hljs-keyword">else</span>{
+</div><div class="hljs-line">    console.<span class="hljs-built_in">log</span>（c最大）
+</div><div class="hljs-line">}<span class="hljs-keyword">else</span>{
+</div><div class="hljs-line"><span class="hljs-keyword">if</span>（b&gt;c）{
+</div><div class="hljs-line">console.<span class="hljs-built_in">log</span>（b最大）
+</div><div class="hljs-line">}<span class="hljs-keyword">else</span>{
+</div><div class="hljs-line">    console.<span class="hljs-built_in">log</span>（c最大）
+</div></code></pre>
+
+<p>十三、switch多路判断</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-keyword">var</span> num = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">"请输入一个0~7的数字："</span>));
+</div><div class="hljs-line"><span class="hljs-keyword">switch</span>(num){
+</div><div class="hljs-line"><span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"今天星期一"</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">break</span>; <span class="hljs-comment">// 停止执行这个switch</span>
+</div><div class="hljs-line"><span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"今天星期二"</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"今天星期三"</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"今天星期四"</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"今天星期五"</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line"><span class="hljs-keyword">default</span>:
+</div><div class="hljs-line">    <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"今天是周末"</span>);
+</div><div class="hljs-line">}
+</div></code></pre>
+
+<p>十四、switch的穿透写法</p>
+
+<pre class="prettyprint hljs-dark"><code class="hljs javascript"><div class="hljs-line"><span class="hljs-comment">// 输入一个月份，输出这个月有多少天？   ----- 穿透写法</span>
+</div><div class="hljs-line"><span class="hljs-keyword">var</span> num = <span class="hljs-built_in">parseInt</span>(prompt(<span class="hljs-string">"请输入一个月份："</span>));
+</div><div class="hljs-line"><span class="hljs-keyword">switch</span>(num){
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">1</span>:
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">3</span>:
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">5</span>:
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">7</span>:
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">8</span>:
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">10</span>:
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">12</span>:
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"31天"</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">4</span>:
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">6</span>:
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">9</span>:
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">11</span>:
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"30天"</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">case</span> <span class="hljs-number">2</span>:
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"28或29天"</span>);
+</div><div class="hljs-line">    <span class="hljs-keyword">break</span>;
+</div><div class="hljs-line">    <span class="hljs-keyword">default</span>:
+</div><div class="hljs-line">        <span class="hljs-built_in">console</span>.log(<span class="hljs-string">"别乱输入"</span>);
+</div><div class="hljs-line">}
+</div></code></pre></div></body></html>

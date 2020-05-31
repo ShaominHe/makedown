@@ -1,0 +1,61 @@
+<!DOCTYPE html><html><head><title>字符串</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h2 id="字符串">字符串</h2>
+
+<p>一、字符串的比较 <br>
+‘a’&gt;2        转成数字比较 <br>
+‘3’&gt;’20’     首字符比较 <br>
+‘a’&lt;’b’     转成阿斯克码比较，字母越靠后越大 <br>
+‘a’&gt;’A’    小写字母大于大写字母 <br>
+‘a’&gt;’2’     比较阿斯克码值 <br>
+总结： <br>
+        1、字符串比较的时候，首字符相等，第二个字符比较 <br>
+        2、字母比较的时候，是转成阿斯克码进行比较的 <br>
+                （1）小写字母大于大写字母 <br>
+                （2）字母越靠后，越大（z&gt;a） <br>
+                （3）字符串的字母比字符串的数字大 <br>
+        例：’a’&gt;2进行比较 <br>
+            console.log(‘a’&gt;2); <br>
+            console.log(‘a’&lt;2); <br>
+            console.log(‘a’==2) <br>
+            结果都是false <br>
+            NaN  不等于自己 <br>
+            NaN 不等于任何数 <br>
+            NaN不能喝任何数比较，比较结果都是false </p>
+
+<p>二、字符串数组  String <br>
+字符串也有下标，字符串是只读数据，不允许修改， <br>
+字符串属性 <br>
+1、 str.length      字符串的长度 <br>
+2、通过下标获取字符       charAt（下标） <br>
+    例： var str=’abcdef’ <br>
+            var res=str.charAt(2) <br>
+            console.log(res) <br>
+3、通过下标获取字符对应的那个unicode码   charCodeAt（下标） <br>
+    例：var res=str.charCodeAt(2) <br>
+            console.log(res) <br>
+4、通过unicode码获取字符   String.fromCharCode（unicode码） <br>
+     例：var res =String.fromCharCode(99); <br>
+            var res =String.fromCharCode(99,98,97) <br>
+            console.log(res) <br>
+5、查找字符串（字符/小字符串）在字符串中的位置，如果没有，返回-1 <br>
+第一次出现的位置    indexof(字符) <br>
+最后一次出现的位置   lastIndeof(字符) <br>
+6、截取字符串  substring（start,end）从开始位置截取到结束位置，结果包含开始位置，不包含结束位置 <br>
+        例：var str =’abcdefg’ <br>
+                var res = str.substring（2,5） <br>
+                console.log（res） <br>
+                结果是cde <br>
+7、炸开字符串    split（分隔符，保留个数） <br>
+        例：  var str=’1,2,3,4’; <br>
+                var  arr=str.split（’,’ , 2）; <br>
+                console.log(arr) <br>
+                结果是：”1”,”2” <br>
+8、大小写转换   toUpperCase（） 转成大写 <br>
+                            toLowerCase（）转成小写 <br>
+9、去除字符串两边的空白   trim  <br>
+        例：var str=’   a  b    c     ‘</p></div></body></html>

@@ -1,0 +1,109 @@
+<!DOCTYPE html><html><head><title>函数</title><meta charset='utf-8'><link href='https://cdn.maxiang.io/res-min/themes/marxico.css' rel='stylesheet'><style></style></head><body><div id='preview-contents' class='note-content'>
+                        
+                    
+
+
+
+<h3 id="函数">函数</h3>
+
+<p>一、函数的预解析 <br>
+1、函数运行的时候会预解析，将函数和var 提前 <br>
+2、预解析的时候，如果有函数和变量同名，函数覆盖变量 <br>
+3、报错会中断代码的执行 <br>
+4、如果函数有形参，并且函数中有函数声明， <br>
+      这时候顺序是先给形参赋值，然后函数内部在进行预解析的提升 <br>
+5、return后面的代码不执行，但是预解析的时候，reutrn后面的var也会被提升 <br>
+ 6、匿名函数的定义不会被提升到前面，因为没有名字，提升到最前面也没办法使用 <br>
+例：console.log(fn) <br>
+        fn() <br>
+        var fn=function(){ <br>
+    console.log(123); <br>
+} <br>
+相当于： var  fn; <br>
+                console.log(fn) <br>
+                fn() <br>
+                fn=function(){ <br>
+        console.log(123) <br>
+} <br>
+7、if条件不成立，代码是不会运行的，但是如果有变量声明，也会被提升</p>
+
+<p>二、变量 <br>
+全局变量：可以在全局任何地方使用，包括函数内部 <br>
+局部变量：只能在函数内部使用（私有变量），不能再全局中使用</p>
+
+<p>作用域： <br>
+    在函数中使用变量： <br>
+            首先，在函数内部去找这个变量，看看有没有在函数内部定义过——-从局部找局部找不到，就去上一层空间里面找，如果上一层空间也没有，去往上一层的上一层去找。。。直到全局，全局中找到了就使用，找不到就报错，变量 is  not  defined</p>
+
+<p>三、事件 <br>
+事件：用户在页面上</p>
+
+<p>事件的三种写法 <br>
+1、写在标签上，on事件名=“函数调用”，当做标签的属性 <br>
+2、标签   .onclick=匿名函数 <br>
+3、标签   .onclick=函数名</p>
+
+<p>事件的种类： <br>
+鼠标单击 <br>
+btn.onclick=function(){ <br>
+    alert(“单击了鼠标”) <br>
+} <br>
+鼠标双击  <br>
+ btn.ondblclick=function(){ <br>
+    alert(“双击了鼠标”) <br>
+} <br>
+鼠标放上去 <br>
+btn.onmouseover=function(){ <br>
+    alert(“鼠标放上去”) <br>
+} <br>
+鼠标离开 <br>
+btn.onmouseout=function(){- <br>
+    alert(“鼠标离开了”) <br>
+} <br>
+键盘按下去 keydown <br>
+window.onkeydown=function(){ <br>
+    alert(“键盘按下去了”) <br>
+} <br>
+键盘弹起   keyup <br>
+window.onkeyup=function(){ <br>
+    alert(“键盘弹起了”) <br>
+} <br>
+加载事件 load <br>
+window.onload=function(){//当页面中所有内容加载完成之后，再来加载本事件 <br>
+    事件 <br>
+}</p>
+
+<p>表单–提交事件 submit <br>
+获取焦点事件 focus <br>
+失去焦点事件  blur <br>
+内容改变事件   change</p>
+
+<p>四、对象 <br>
+对象：存储一系列信息的（很多变量组合在一起） <br>
+对象定义： <br>
+1、var  obj={  // 创建了一个空对象 <br>
+} <br>
+以json对象的形式创建的对象 <br>
+var  obj ={ <br>
+    属性1：值1， <br>
+    属性2：值2， <br>
+} <br>
+例：  var  obj ={ <br>
+        name:’张三’， <br>
+        age:12, <br>
+        sex:’男’， <br>
+        height:167, <br>
+        weight:123,  <br>
+}</p>
+
+<p>对象的访问 <br>
+对象.属性名 <br>
+例：console.log(obj.name)获取对象的值 <br>
+        obj.sex=’女’ 修改对象的值 <br>
+        delete obj.sex  删除对象的值 <br>
+        obj.name=’赵六’  增加一个属性</p>
+
+<p>对象的操作：增删改查</p>
+
+<p>五、构造函数 <br>
+能用new来创建对象的函数叫构造函数–任何函数都可以是构造函数，只不过当使用new来创建对象的时候，这个函数叫做构造函数</p></div></body></html>
